@@ -1,0 +1,61 @@
+apiVersion: mq.ibm.com/v1beta1
+kind: QueueManager
+metadata:
+  name: wp1
+  namespace: wbc5
+spec:
+  license:
+    accept: true
+    license: L-RJON-BZFQU2
+   # license: L-RJON-BN7PN3
+    metric: VirtualProcessorCore
+    use: NonProduction
+  queueManager:
+    image: cp.icr.io/cp/ibm-mqadvanced-server-integration:9.2.4.0-r1-amd64
+    imagePullPolicy: Always
+    storage:
+      defaultClass: ibmc-block-gold
+      queueManager:
+        type: persistent-claim
+        size: 10Gi
+    resources:
+      limits:
+        cpu: '0.5'
+        memory: 4Gi
+      requests:
+        cpu: '0.5'
+        memory: 4Gi
+    availability:
+      updateStrategy: RollingUpdate
+      #type: SingleInstance
+      type: NativeHA
+    name: QM1
+    mqsc:
+    - configMap:
+        name: wp1-mqsc
+        items:
+        - ivt.mqsc
+  template:
+    pod:
+      containers:
+        - env:
+            - name: MQSNOAUT
+              value: 'yes'
+          name: qmgr
+  version: 9.2.4.0-r1
+  web:
+    enabled: true
+  mqDashboard: true
+  tracing:
+    enabled: false
+    namespace: od
+  pki:
+    keys:
+      - name: label1
+        secret:
+          secretName: wp1key
+          items:
+            - tls.key
+            - tls.crt
+  imagePullSecrets:
+    - name: ibm-entitlement-key
