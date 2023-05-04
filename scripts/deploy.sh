@@ -1,5 +1,5 @@
 #!/bin/bash
-oc project wbc1 
+oc project wbc5
 set +e
 # Remove the runnning queue manager instance (if any)
 
