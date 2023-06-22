@@ -29,7 +29,7 @@ spec:
       updateStrategy: RollingUpdate
       #type: SingleInstance
       type: NativeHA
-    name: QM1
+    name: QM2
     mqsc:
     - configMap:
         name: wp1-mqsc
