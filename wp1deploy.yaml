@@ -1,7 +1,7 @@
 apiVersion: mq.ibm.com/v1beta1
 kind: QueueManager
 metadata:
-  name: wp1
+  name: wp2
   namespace: wbc5
 spec:
   license:
@@ -29,10 +29,10 @@ spec:
       updateStrategy: RollingUpdate
       #type: SingleInstance
       type: NativeHA
-    name: QM2
+    name: QM3
     mqsc:
     - configMap:
-        name: wp1-mqsc
+        name: wp2-mqsc
         items:
         - ivt.mqsc
   template:
