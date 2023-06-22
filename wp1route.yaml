@@ -1,13 +1,13 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: wp1route 
+  name: wp2route 
   namespace: wbc5
 spec:
   host: wptls1.chl.mq.ibm.com
   to:
     kind: Service
-    name: wp1-ibm-mq 
+    name: wp2-ibm-mq 
   port:
     targetPort: 1414
   tls:
