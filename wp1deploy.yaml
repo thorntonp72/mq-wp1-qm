@@ -2,7 +2,7 @@ apiVersion: mq.ibm.com/v1beta1
 kind: QueueManager
 metadata:
   name: wp1
-  namespace: wbc5
+  namespace: thornton-paul
 spec:
   license:
     accept: true
@@ -17,7 +17,7 @@ spec:
       defaultClass: ibmc-block-gold
       queueManager:
         type: persistent-claim
-        size: 10Gi
+        size: 8Gi
     resources:
       limits:
         cpu: '0.5'
@@ -27,9 +27,9 @@ spec:
         memory: 4Gi
     availability:
       updateStrategy: RollingUpdate
-      #type: SingleInstance
-      type: NativeHA
-    name: QM2
+      type: SingleInstance
+      # type: NativeHA
+    name: QMSI
     mqsc:
     - configMap:
         name: wp1-mqsc
@@ -47,7 +47,7 @@ spec:
     enabled: true
   mqDashboard: true
   tracing:
-    enabled: false
+    enabled: true
     namespace: od
   pki:
     keys:
