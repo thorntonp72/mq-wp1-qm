@@ -1,9 +1,9 @@
 #!/bin/bash
-oc project wbc5
+oc project thornton-paul
 set +e
 # Remove the runnning queue manager instance (if any)
 
-oc delete QueueManager wp1
+oc delete QueueManager thornton-paul
 
 # Delete the route object and secret for the QueueManager keystore (if any), and the mqsc configMap
 oc delete route wp1route
