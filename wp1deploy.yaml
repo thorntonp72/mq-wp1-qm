@@ -27,8 +27,8 @@ spec:
         memory: 4Gi
     availability:
       updateStrategy: RollingUpdate
-      type: SingleInstance
-      # type: NativeHA
+      # type: SingleInstance
+      type: NativeHA
     name: QMSI
     mqsc:
     - configMap:
@@ -47,7 +47,7 @@ spec:
     enabled: true
   mqDashboard: true
   tracing:
-    enabled: true
+    enabled: false
     namespace: od
   pki:
     keys:
