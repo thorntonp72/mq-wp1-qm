@@ -1,7 +1,7 @@
 apiVersion: mq.ibm.com/v1beta1
 kind: QueueManager
 metadata:
-  name: wp1
+  name: ludgn999
   namespace: thornton-paul
 spec:
   license:
