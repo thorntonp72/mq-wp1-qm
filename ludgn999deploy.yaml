@@ -1,8 +1,8 @@
 apiVersion: mq.ibm.com/v1beta1
 kind: QueueManager
 metadata:
-  name: wp1
-  namespace: wbc5
+  name: ludgn999
+  namespace: thornton-paul
 spec:
   license:
     accept: true
@@ -17,7 +17,7 @@ spec:
       defaultClass: ibmc-block-gold
       queueManager:
         type: persistent-claim
-        size: 10Gi
+        size: 8Gi
     resources:
       limits:
         cpu: '0.5'
@@ -27,12 +27,12 @@ spec:
         memory: 4Gi
     availability:
       updateStrategy: RollingUpdate
-      #type: SingleInstance
+      # type: SingleInstance
       type: NativeHA
-    name: QM1
+    name: QMSI
     mqsc:
     - configMap:
-        name: wp1-mqsc
+        name: ludgn999-mqsc
         items:
         - ivt.mqsc
   template:
@@ -53,7 +53,7 @@ spec:
     keys:
       - name: label1
         secret:
-          secretName: wp1key
+          secretName: ludgn999key
           items:
             - tls.key
             - tls.crt
