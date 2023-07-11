@@ -32,7 +32,7 @@ spec:
     name: QMSI
     mqsc:
     - configMap:
-        name: wp1-mqsc
+        name: ludgn999-mqsc
         items:
         - ivt.mqsc
   template:
@@ -53,7 +53,7 @@ spec:
     keys:
       - name: label1
         secret:
-          secretName: wp1key
+          secretName: ludgn999key
           items:
             - tls.key
             - tls.crt
